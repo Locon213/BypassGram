@@ -1,0 +1,10 @@
+[submodule "upstream/telegram-android"]
+	path = upstream/telegram-android
+	url = https://github.com/DrKLO/Telegram
+	branch = master
+
+[submodule "upstream/goodbyedpi"]
+	path = upstream/goodbyedpi
+	url = https://github.com/ValdikSS/GoodbyeDPI
+	branch = master
+
