@@ -1,0 +1,18 @@
+rootProject.name = "BypassGram"
+
+include(":TMessagesProj")
+project(":TMessagesProj").projectDir = file("upstream/telegram-android/TMessagesProj")
+
+include(":TMessagesProj_App")
+project(":TMessagesProj_App").projectDir = file("upstream/telegram-android/TMessagesProj_App")
+
+include(":TMessagesProj_AppHockeyApp")
+project(":TMessagesProj_AppHockeyApp").projectDir = file("upstream/telegram-android/TMessagesProj_AppHockeyApp")
+
+include(":TMessagesProj_AppStandalone")
+project(":TMessagesProj_AppStandalone").projectDir = file("upstream/telegram-android/TMessagesProj_AppStandalone")
+
+include(":TMessagesProj_AppTests")
+project(":TMessagesProj_AppTests").projectDir = file("upstream/telegram-android/TMessagesProj_AppTests")
+
+include(":dpi-core")
