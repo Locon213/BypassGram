@@ -12,6 +12,11 @@
 [![Build](https://github.com/Locon213/BypassGram/actions/workflows/android.yml/badge.svg)](https://github.com/Locon213/BypassGram/actions)
 [![Release](https://img.shields.io/github/v/release/Locon213/BypassGram?label=latest)](https://github.com/Locon213/BypassGram/releases/latest)
 
+<p align="center"> 
+  <a href="https://github.com/Locon213/BypassGram/releases/latest"> <img src="https://img.shields.io/badge/Download-APK-blue?logo=android&style=for-the-badge" alt="Download APK"/> 
+  </a> 
+</p>
+
 ## ✨ Возможности
 * 🔐 GoodByeDPI внутри: фрагментация TLS, obfs SNI, split TCP.  
 * 📴 Туннель активен **только** во время звонка *Established*.  
@@ -32,22 +37,18 @@ git clone https://github.com/Locon213/BypassGram
 cd BypassGram
 ./gradlew :app:assembleRelease      # Linux only
 ```
-##🔬 Self-tests
+## 🔬 Self-tests
 
 Настройка: Settings → DPI Bypass → Self-test.
 Проверяются RTT и loss, сохраняется лучшая MTU.
 
-##📄 Лицензия
-Компонент	Лицензия
-Telegram-Android	GPL-3.0
-GoodByeDPI	Apache-2.0
-Tun2Socks-lite	MIT
-Наш код	GPL-3.0-or-later
+## 📄 Лицензия
+* Компонент	Лицензия
+* Telegram-Android	GPL-3.0
+* GoodByeDPI	Apache-2.0
+* Tun2Socks-lite	MIT
+* Наш код	GPL-3.0-or-later
 
 Полный текст — в LICENSE.
-<p align="center"> 
-  <a href="https://github.com/Locon213/BypassGram/releases/latest"> <img src="https://img.shields.io/badge/Download-APK-blue?logo=android&style=for-the-badge" alt="Download APK"/> 
-  </a> 
-</p>
 
 Author / Maintainer: Locon213
