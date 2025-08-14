@@ -1,14 +1,13 @@
 rootProject.name = "BypassGram"
 
-fun tlg(path: String) = file("upstream/telegram-android/$path")
+fun tgRoot() = file("upstream/telegram-android")
 
 include(":TMessagesProj")
-project(":TMessagesProj").projectDir = tlg("TMessagesProj")
+project(":TMessagesProj").projectDir = tgRoot()
 
-include(":TMessagesProj_AppStandalone")
-project(":TMessagesProj_AppStandalone").projectDir = project(":TMessagesProj").projectDir
-
-include(":TMessagesProj_AppNative")
-project(":TMessagesProj_AppNative").projectDir = project(":TMessagesProj").projectDir
-
-include(":dpi-core")
+// -------------------------------------
+// Если когда-нибудь понадобится собрать
+// Play-build или Huawei-build, можно
+// вернуть alias-модули тем же приёмом:
+// project(":TMessagesProj_AppNative").projectDir = project(":TMessagesProj").projectDir
+// -------------------------------------
