@@ -1,5 +1,9 @@
 name: Update Gradle Wrapper
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   schedule:
     - cron:  '0 3 * * 0'   # каждое воскресенье 03:00 UTC
@@ -40,6 +44,7 @@ jobs:
         with:
           branch: gradle-wrapper-update
           commit_message: "chore: update Gradle wrapper to ${{ env.LATEST }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
           create_branch: true
           push_options: --force-with-lease
 
