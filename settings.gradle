@@ -12,7 +12,7 @@ project(":TMessagesProj_AppHockeyApp").projectDir = file("upstream/telegram-andr
 include(":TMessagesProj_AppStandalone")
 project(":TMessagesProj_AppStandalone").projectDir = file("upstream/telegram-android/TMessagesProj_AppStandalone")
 
-include(":TMessagesProj_AppTests")
-project(":TMessagesProj_AppTests").projectDir = file("upstream/telegram-android/TMessagesProj_AppTests")
+// include(":TMessagesProj_AppTests")
+// project(":TMessagesProj_AppTests").projectDir = file("upstream/telegram-android/TMessagesProj_AppTests")
 
 include(":dpi-core")

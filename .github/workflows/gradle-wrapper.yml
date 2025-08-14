@@ -1,4 +1,5 @@
 name: Update Gradle Wrapper
+# Updated workflow without Gradle 9.x guard
 
 permissions:
   contents: write
