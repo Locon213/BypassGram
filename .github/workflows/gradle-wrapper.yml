@@ -1,5 +1,9 @@
 name: Update Gradle Wrapper
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   schedule:
     - cron:  '0 3 * * 0'   # каждое воскресенье 03:00 UTC
@@ -19,16 +23,28 @@ jobs:
           java-version: 21
 
       - name: Upgrade wrapper to latest
+        id: upgrade
         run: |
+          # get latest version number
           LATEST=$(curl -s https://services.gradle.org/versions/current | jq -r .version)
-          ./gradlew wrapper --gradle-version "$LATEST" --distribution-type all
-          git status --porcelain
+          echo "LATEST=$LATEST" >> $GITHUB_ENV
+
+          # if local wrapper exists, use it; otherwise install system Gradle
+          if [ -f "./gradlew" ]; then
+            chmod +x ./gradlew
+            ./gradlew wrapper --gradle-version "$LATEST" --distribution-type all
+          else
+            sudo apt-get update -qq
+            sudo apt-get install -y gradle
+            gradle wrapper --gradle-version "$LATEST" --distribution-type all
+          fi
 
       - name: Commit & push (if changed)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: gradle-wrapper-update
-          commit_message: "chore: update Gradle wrapper to $LATEST"
+          commit_message: "chore: update Gradle wrapper to ${{ env.LATEST }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
           create_branch: true
           push_options: --force-with-lease
 
