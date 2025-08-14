@@ -1,0 +1,43 @@
+name: Update Gradle Wrapper
+
+on:
+  schedule:
+    - cron:  '0 3 * * 0'   # каждое воскресенье 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Upgrade wrapper to latest
+        run: |
+          LATEST=$(curl -s https://services.gradle.org/versions/current | jq -r .version)
+          ./gradlew wrapper --gradle-version "$LATEST" --distribution-type all
+          git status --porcelain
+
+      - name: Commit & push (if changed)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: gradle-wrapper-update
+          commit_message: "chore: update Gradle wrapper to $LATEST"
+          create_branch: true
+          push_options: --force-with-lease
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: gradle-wrapper-update
+          title: "chore: update Gradle wrapper"
+          body: |
+            Weekly automated update to the latest Gradle version.
+          labels: maintenance, dependencies
+          draft: false
