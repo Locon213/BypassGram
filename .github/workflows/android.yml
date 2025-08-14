@@ -16,7 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with: { submodules: recursive, fetch-depth: 1 }
+        with: { submodules: "false", fetch-depth: 1 }
+
+      - name: Init submodules
+        run: git submodule update --init --depth 1 upstream/telegram-android
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
