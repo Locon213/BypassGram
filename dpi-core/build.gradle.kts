@@ -1,4 +1,7 @@
-plugins { id("com.android.library") version "9.0.0-alpha12" }
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+}
 
 android {
     namespace = "org.bypassgram.dpi"
@@ -19,6 +22,10 @@ android {
     publishing {
         singleVariant("release") { withSourcesJar() }
     }
+}
+
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies { /* none */ }
