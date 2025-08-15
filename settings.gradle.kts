@@ -9,7 +9,7 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
@@ -23,3 +23,5 @@ fun tgRoot() = file("upstream/telegram-android")
 
 include(":TMessagesProj")
 project(":TMessagesProj").projectDir = tgRoot()
+include(":TMessagesProj_AppStandalone")
+project(":TMessagesProj_AppStandalone").projectDir = project(":TMessagesProj").projectDir
