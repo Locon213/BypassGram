@@ -33,7 +33,7 @@ jobs:
         - name: Build (ABI ${{ matrix.abi }})
           uses: gradle/gradle-build-action@v3
           with:
-            arguments: :TMessagesProj_AppStandalone:assembleDebug -Pandroid.injected.build.abi=${{ matrix.abi }}
+            arguments: :TMessagesProj_AppStandalone:assembleAfat -Pandroid.injected.build.abi=${{ matrix.abi }}
 
         - name: Upload APK artifact
           uses: actions/upload-artifact@v4
