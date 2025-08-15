@@ -23,3 +23,5 @@ fun tgRoot() = file("upstream/telegram-android")
 
 include(":TMessagesProj")
 project(":TMessagesProj").projectDir = tgRoot()
+include(":TMessagesProj_AppStandalone")
+project(":TMessagesProj_AppStandalone").projectDir = project(":TMessagesProj").projectDir
